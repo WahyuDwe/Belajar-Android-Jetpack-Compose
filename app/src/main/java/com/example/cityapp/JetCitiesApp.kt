@@ -41,8 +41,7 @@ fun JetCitiesApp(
             if (currentRoute == Screen.Home.route) {
                 TopBar(navController = navController)
             }
-        },
-        modifier = modifier
+        }, modifier = modifier
     ) { innerPadding ->
         NavHost(
             navController = navController,
@@ -50,18 +49,19 @@ fun JetCitiesApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen(
-                    navigateToDetail = { cityId ->
-                        navController.navigate(Screen.DetailCity.createRoute(cityId))
-                    }
-                )
+                HomeScreen(navigateToDetail = { cityId ->
+                    navController.navigate(Screen.DetailCity.createRoute(cityId))
+                })
             }
 
             composable(Screen.Profile.route) {
-                ProfileScreen()
+                ProfileScreen(navigateBack = { navController.navigateUp() })
             }
 
-            composable(Screen.DetailCity.route, arguments = listOf(navArgument("cityId"){type = NavType.LongType}))  {
+            composable(
+                Screen.DetailCity.route,
+                arguments = listOf(navArgument("cityId") { type = NavType.LongType })
+            ) {
                 val id = it.arguments?.getLong("cityId") ?: -1L
                 DetailScreen(
                     cityId = id,
@@ -79,8 +79,7 @@ private fun TopBar(
     navController: NavHostController = rememberNavController(),
 ) {
     TopAppBar(
-        modifier = modifier
-            .shadow(elevation = 4.dp),
+        modifier = modifier.shadow(elevation = 4.dp),
         title = { Text(text = stringResource(R.string.jetcities)) },
         actions = {
             IconButton(onClick = {

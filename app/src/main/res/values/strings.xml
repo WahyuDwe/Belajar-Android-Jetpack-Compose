@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">CityApp</string>
     <string name="jetcities">JetCities</string>
+    <string name="image_detail">image detail</string>
+    <string name="back">Back</string>
+    <string name="profile">Profile</string>
+    <string name="city_photo">City Photo</string>
 </resources>
