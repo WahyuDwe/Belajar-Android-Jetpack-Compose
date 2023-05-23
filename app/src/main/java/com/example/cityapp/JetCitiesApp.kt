@@ -85,7 +85,7 @@ private fun TopBar(
             IconButton(onClick = {
                 navController.navigate(Screen.Profile.route)
             }) {
-                Icon(imageVector = Icons.Default.Person, contentDescription = null)
+                Icon(imageVector = Icons.Default.Person, contentDescription = stringResource(R.string.about_page))
             }
         },
 

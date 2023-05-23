@@ -5,4 +5,5 @@
     <string name="back">Back</string>
     <string name="profile">Profile</string>
     <string name="city_photo">City Photo</string>
+    <string name="about_page">about_page</string>
 </resources>
